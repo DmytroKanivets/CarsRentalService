@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:custom="http://java.sun.com/jsf/composite/custom"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+
+<custom:mainframe title="Add car">
+
+    <table class="formatting">
+        <tr>
+            <td>Total orders: #{orders.getAllOrders().size()}</td>
+        </tr>
+        <tr>
+            <td>Total price: #{orders.getProfit(orders.getAllOrders())} $</td>
+        </tr>
+    </table>
+
+    <h:dataTable value="#{orders.getAllOrders()}" var="order" rendered="#{orders.getAllOrders().size() > 0}"
+                 styleClass="tableStyle">
+
+        <h:column>
+            <f:facet name="header">Client</f:facet>
+            #{order.client.name}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Car</f:facet>
+            #{order.car.manufacturerName} #{order.car.modelName}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Start date</f:facet>
+
+            <h:outputText value="#{order.startDate}" >
+                <f:convertDateTime pattern="dd MMMM yyyy" />
+            </h:outputText>
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">End date</f:facet>
+
+            <h:outputText value="#{order.endDate}" >
+                <f:convertDateTime pattern="dd MMMM yyyy" />
+            </h:outputText>
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Profit</f:facet>
+            #{order.getDuration() * order.car.price}$
+        </h:column>
+    </h:dataTable>
+</custom:mainframe>
+</html>

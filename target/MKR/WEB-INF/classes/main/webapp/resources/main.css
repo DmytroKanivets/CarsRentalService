@@ -1,0 +1,203 @@
+body {
+    background-color: rgb(240, 240, 240);
+    font-family: Arial;
+    font-size: 1.1em;
+}
+
+input.login {
+    width: 100%;
+}
+
+div.loginDiv {
+    width: 300px;
+    margin: auto;
+    padding: 0px;
+}
+
+input {
+    margin-bottom: 15px;
+}
+
+div.mainWrap {
+    max-width: 1000px;
+    margin: auto;
+}
+
+div.mainBar {
+    float: left;
+    width: 85%;
+    min-height: 1px;
+}
+
+div.sideBar {
+    width: 15%;
+    float: left;
+}
+
+div.head {
+    width: 100%;
+    text-align: center;
+}
+
+p.headLabel {
+    font-size: 3em;
+}
+
+.welcomeLabel {
+    font-size: 1.2em;
+}
+
+.sideButton {
+    background-color: inherit;
+    border: 0px;
+    width: 100%;
+    text-align: left;
+    font-size: 1.1em;
+    padding: 5px;
+}
+
+.sideButton:hover {
+    background-color: rgb(230, 230, 230);
+}
+
+p.postHeader {
+    font-weight: bold;
+    font-size: 1.1em;
+    margin: 5px;
+}
+
+p.postContent {
+    margin: 5px;
+}
+
+div.postWrapper {
+    border: 1px solid rgb(200, 200, 200);
+    margin: 0px 10px 10px 20px;
+    padding: 10px;
+    background-color: white;
+}
+
+div.contentHolder {
+    border: 1px solid rgb(200, 200, 200);
+    background-color: white;
+    margin: 0px 10px 10px 10px;
+    width: auto;
+    padding: 10px;
+}
+
+.sendButton {
+    background-color: transparent;
+    border: 2px solid #ccc;
+    padding: 12px;
+    font-family: inherit;
+    border-radius: 4px;
+}
+
+.inputField {
+    width: 100%;
+    padding: 12px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+}
+
+.postContentEditor {
+    width: 100%;
+    height: 500px;
+    padding: 12px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    resize: none;
+    font-family: inherit;
+}
+
+p.checkboxLabel {
+    margin: 5px;
+}
+
+.carDetails {
+    background-color: transparent;
+    border: 0px;
+    padding: 15px;
+    margin: 0px;
+    font-size: inherit;
+    font-family: inherit;
+    width: 100%;
+    height: 100%;
+    text-align: left;
+    cursor: pointer;
+}
+
+.carDetails:hover {
+    background-color: #DDD;
+    background-clip: border-box;
+}
+
+.nonDetails {
+    background-color: transparent;
+    border: 0px;
+    padding: 15px;
+    font-size: inherit;
+    font-family: inherit;
+    width: 100%;
+    height: 100%;
+    text-align: left;
+}
+
+table.tableStyle {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table.tableStyle th, table.tableStyle td {
+    border: 1px solid gainsboro;
+}
+
+table.tableStyle th, table.tableStyle td {
+    padding: 15px;
+    text-align: left;
+}
+
+table.tableStyle, table.tableStyle th.details {
+    border: 0px !important;
+}
+
+table.tableStyle td.details {
+    padding: 0px;
+}
+
+div.none {
+    margin: 0px;
+    padding: 0px;
+    background-color: transparent;
+}
+
+table.formatting {
+    width: 100%;
+}
+
+div.dateInputDiv {
+    width: 262px;
+    margin: auto;
+}
+
+p.fieldTitle {
+    margin: 0px;
+    padding: 12px;
+    padding-bottom: 5px;
+}
+
+p.pageTitle {
+    margin: 10px;
+    font-weight: bolder;
+    font-size: 1.2em;
+}
+
+label.error {
+    color: red;
+}
+
+p {
+    color: black;
+}

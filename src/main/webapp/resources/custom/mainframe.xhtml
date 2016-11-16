@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:composite="http://java.sun.com/jsf/composite">
+
+
+<composite:interface>
+    <composite:attribute name="title"/>
+    <composite:attribute name="noWrap" default="false"/>
+
+</composite:interface>
+
+<composite:implementation>
+    <h:head>
+        <title>#{cc.attrs.title}</title>
+        <h:outputStylesheet name="main.css"  />
+        <h:outputScript name="dates.js"/>
+    </h:head>
+    <h:body>
+        <div class="mainWrap">
+            <div class="head">
+                <div style="width: 70%">
+                    <p class="headLabel">Car rental service</p>
+                </div>
+            </div>
+
+            <div class="mainBar">
+                <!--
+                <h:panelGroup styleClass="#{cc.attrs.noWrap == 'true' ? none :  contentHolder}">
+                    <composite:insertChildren/>
+                </h:panelGroup>-->
+                <div class="#{cc.attrs.noWrap == 'true' ? 'none' :  'contentHolder'}">
+                    <composite:insertChildren/>
+                </div>
+            </div>
+
+            <div class="sideBar">
+                <h:form styleClass="sideMenu">
+
+                    <h:commandButton action="#{navigation.getIndexPage()}" value="Main page" styleClass="sideButton"/><br/>
+
+                    <ui:fragment rendered="#{!navigation.loggedIn}">
+                        <h:commandButton action="#{navigation.getLoginPage()}" value="Log in" styleClass="sideButton"/>
+                        <br/>
+                        <h:commandButton action="#{navigation.getRegistrationPage()}" value="Register" styleClass="sideButton"/>
+                        <br/>
+                    </ui:fragment>
+
+                    <ui:fragment rendered="#{navigation.isAdmin()}">
+                        <h:commandButton action="#{navigation.getAllOrdersPage()}" value="Orders" styleClass="sideButton"/>
+                        <br/>
+                        <h:commandButton action="#{navigation.getCarsPage()}" value="Cars status" styleClass="sideButton"/>
+                        <br/>
+                        <h:commandButton action="#{navigation.getAddCarPage()}" value="Add car" styleClass="sideButton"/>
+                        <br/>
+                        <h:commandButton action="#{navigation.getAddNewsPage()}" value="Add post" styleClass="sideButton"/>
+                        <br/>
+                    </ui:fragment>
+
+                    <ui:fragment rendered="#{navigation.isUser()}">
+                        <h:commandButton action="#{navigation.getNewOrderPage()}" value="New order" styleClass="sideButton"/>
+                        <br/>
+                        <h:commandButton action="#{navigation.getOrdersPage()}" value="My orders" styleClass="sideButton"/>
+                        <br/>
+                    </ui:fragment>
+
+                    <ui:fragment rendered="#{navigation.loggedIn}">
+                        <h:commandButton action="#{navigation.getLogoutPage()}" value="Log out" styleClass="sideButton"/>
+                        <br/>
+                    </ui:fragment>
+                </h:form>
+            </div>
+        </div>
+    </h:body>
+</composite:implementation>
+
+
+</html>

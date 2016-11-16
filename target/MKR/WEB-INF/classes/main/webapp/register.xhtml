@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:custom="http://java.sun.com/jsf/composite/custom"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+
+<custom:mainframe title="Register">
+    <div class="loginDiv">
+        <h:form>
+            <h:message for="login" style="color:red"/>
+            <h:inputText value="#{registration.email}" required="true" id="login" styleClass="inputField" a:placeholder="E-mail">
+                <f:validator validatorId="validators.EmailValidator"/>
+            </h:inputText>
+
+            <h:inputText value="#{registration.name}" required="true" id="name" styleClass="inputField" a:placeholder="Name"/>
+
+
+            <h:inputSecret value="#{registration.password}" required="true" styleClass="inputField" a:placeholder="Password"/>
+
+            <h:commandButton value="Register" action="#{navigation.getIndexPage()}" actionListener="#{registration.register()}" styleClass="sendButton"/>
+        </h:form>
+    </div>
+</custom:mainframe>
+</html>

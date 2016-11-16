@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:custom="http://java.sun.com/jsf/composite/custom"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+<custom:mainframe title="Cars">
+
+    <h:outputLabel rendered="#{cars.getAll().size() == 0}" value="You have no cars :("/>
+
+        <h:dataTable value="#{cars.getAll()}" var="car" rendered="#{cars.getAll().size() > 0}"
+                     styleClass="tableStyle" columnClasses=",,details">
+            <h:column>
+                <f:facet name="header">Name</f:facet>
+                #{car.manufacturerName} #{car.modelName}
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">Status</f:facet>
+                #{car.isUsed() ? "Used" : "Free"}
+            </h:column>
+
+            <h:column>
+                <h:form>
+                    <h:commandButton value="Details" actionListener="#{cars.setSelectedCar(car.id)}" action="#{navigation.getCarStatusPage()}" styleClass="carDetails"/>
+                </h:form>
+            </h:column>
+
+        </h:dataTable>
+</custom:mainframe>
+</html>

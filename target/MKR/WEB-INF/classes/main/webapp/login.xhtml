@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:custom="http://java.sun.com/jsf/composite/custom"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+
+<custom:mainframe title="Log in">
+    <div class="loginDiv">
+        <h:form>
+            <h:message for="login" style="color:red"/>
+            <h:inputText value="#{navigation.login}" required="true" id="login" styleClass="inputField" a:placeholder="E-mail">
+                <f:validator validatorId="validators.EmailValidator"/>
+            </h:inputText>
+
+            <h:inputSecret value="#{navigation.password}" required="true" styleClass="inputField" a:placeholder="Password"/>
+
+            <h:commandButton value="Log in" action="#{navigation.logIn()}" styleClass="sendButton"/>
+        </h:form>
+    </div>
+</custom:mainframe>
+</html>

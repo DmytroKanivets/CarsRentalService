@@ -1,0 +1,4 @@
+<jboss-web>
+   <context-root>/MKR</context-root>
+   <security-domain>mkr-domain</security-domain>
+</jboss-web>

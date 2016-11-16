@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-ejb" name="MKR:ejb exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/MKR_ejb_exploded.rar</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="MKR/ejb/EJB" />
+      <element id="module-output" name="MKR" />
+    </root>
+  </artifact>
+</component>

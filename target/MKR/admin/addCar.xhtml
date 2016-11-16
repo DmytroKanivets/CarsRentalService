@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:custom="http://java.sun.com/jsf/composite/custom"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+
+<custom:mainframe title="Add car">
+        <h:form styleClass="addForm">
+
+            <h:message for="brand" style="color:red"/>
+            <h:inputText value="#{cars.car.manufacturerName}" required="true" styleClass="inputField" a:placeholder="Brand" id="brand"/>
+            <h:message for="model" style="color:red"/>
+            <h:inputText value="#{cars.car.modelName}" required="true" styleClass="inputField" a:placeholder="Model" id="model"/>
+            <h:message for="number" style="color:red"/>
+            <h:inputText value="#{cars.car.registrationNumber}" required="true" styleClass="inputField" a:placeholder="Registration number" id="number">
+                <f:validator validatorId="validators.CarNumberValidator"/>
+            </h:inputText>
+            <h:message for="color" style="color:red"/>
+            <h:inputText value="#{cars.car.color}" required="true" styleClass="inputField" a:placeholder="Color" id="color"/>
+            <h:message for="year" style="color:red"/>
+            <h:inputText value="#{cars.car.manufacturingYear}" required="true" styleClass="inputField" a:placeholder="Manufacturing year" id="year">
+                <f:convertNumber/>
+            </h:inputText>
+            <h:message for="price" style="color:red"/>
+            <h:inputText value="#{cars.car.price}" required="true" styleClass="inputField" a:placeholder="Price" id="price">
+                <f:convertNumber/>
+            </h:inputText>
+
+
+            <h:commandButton value="Add car" styleClass="sendButton"
+                             actionListener="#{cars.addCar()}"
+                             action="#{navigation.getCarsPage()}"/>
+        </h:form>
+</custom:mainframe>
+</html>

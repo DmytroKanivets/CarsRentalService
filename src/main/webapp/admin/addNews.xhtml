@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:custom="http://java.sun.com/jsf/composite/custom"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+
+<custom:mainframe title="Add post">
+
+        <h:form>
+            <h:inputText value="#{posts.postTitle}" styleClass="inputField" required="true" a:placeholder="Title"/>
+            <h:inputTextarea value="#{posts.postContent}" styleClass="postContentEditor" a:placeholder="Body"/>
+
+            <p class="checkboxLabel">
+                <h:selectBooleanCheckbox value="#{posts.postInBlog}" id="toBlog"/>
+                <h:outputLabel value="Post in news" styleClass="checkboxLabel" for="toBlog"/>
+            </p>
+
+            <p class="checkboxLabel">
+                <h:selectBooleanCheckbox value="#{posts.sendToEmail}" id="toMail" />
+                <h:outputLabel value="Sent to emails" for="toMail"/>
+            </p>
+
+            <h:commandButton value="Add post" styleClass="sendButton"
+                             actionListener="#{posts.newPost()}"
+                             action="#{navigation.getIndexPage()}"/>
+        </h:form>
+</custom:mainframe>
+
+</html>

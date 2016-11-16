@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:custom="http://java.sun.com/jsf/composite/custom"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+<custom:mainframe title="Car status">
+    <table class="formatting">
+        <tr>
+            <td>Brand: #{cars.selectedCar.manufacturerName}</td>
+            <td>Color: #{cars.selectedCar.color}</td>
+        </tr>
+        <tr>
+            <td>Model: #{cars.selectedCar.modelName}</td>
+            <td>Price: #{cars.selectedCar.price} $/day</td>
+        </tr>
+        <tr>
+            <td>Reg number: #{cars.selectedCar.registrationNumber}</td>
+        </tr>
+    </table>
+    <br/>
+
+        <h:dataTable value="#{cars.getSelectedOrders()}" var="order" rendered="#{cars.getSelectedOrders().size() > 0}"
+                     styleClass="tableStyle">
+
+            <h:column>
+                <f:facet name="header">Client</f:facet>
+                #{order.client.name}
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">From</f:facet>
+
+                <h:outputText value="#{order.startDate}" >
+                    <f:convertDateTime pattern="dd MMMM yyyy" />
+                </h:outputText>
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">To</f:facet>
+
+                <h:outputText value="#{order.endDate}" >
+                    <f:convertDateTime pattern="dd MMMM yyyy" />
+                </h:outputText>
+            </h:column>
+        </h:dataTable>
+
+    <h:outputLabel rendered="#{cars.getSelectedOrders().size() == 0}" value="No orders for this car"/>
+</custom:mainframe>
+</html>

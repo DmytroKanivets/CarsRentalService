@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:custom="http://java.sun.com/jsf/composite/custom"
+      xmlns:p="http://primefaces.org/ui">
+<custom:mainframe title="New order">
+    <div class="dateInputDiv">
+        <h:form>
+
+            <h:outputLabel value="#{orders.getMessage()}" rendered="#{orders.hasMessage()}"  styleClass="error"/>
+            <p class="fieldTitle">
+                Enter start date
+            </p>
+            <h:inputText value="#{orders.startDate}" styleClass="dateInput inputField" id="date">
+                <f:convertDateTime pattern="yyyy-MM-dd"/>
+            </h:inputText>
+
+            <p class="fieldTitle">
+                Enter end date
+            </p>
+            <h:inputText value="#{orders.endDate}" styleClass="dateInput inputField" id="secondDate">
+                <f:convertDateTime pattern="yyyy-MM-dd"/>
+            </h:inputText>
+
+            <h:commandButton value="Search for car" action="#{orders.searchCar()}" styleClass="sendButton"/>
+        </h:form>
+    </div>
+</custom:mainframe>
+</html>
